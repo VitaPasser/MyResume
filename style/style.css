@@ -46,4 +46,9 @@ body {
     .fixed-side-bar {
         display: none;
     }
+    .short-card {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
   }
