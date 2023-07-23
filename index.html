@@ -19,10 +19,11 @@
             <a href="#education">Освіта</a>
             <a href="#awards">Нагороди</a>
             <a href="#other">Інше</a>
+            <a id="shorting" href="#" onclick="shorting();return false;">Скоротити</a>
         </nav>
     </div>
 
-    <div class="card" id="contacts">
+    <div class="card first" id="contacts">
         <h1>Воробйов Віталій Павлович</h1>
         <p>м. Одеса, Україна</p>
         <p>Телефон: <a href="tel:+380985566904">+380985566904</a></p>
@@ -81,11 +82,11 @@
         <div class="unit-experience-work">
             <p class="time-work">Липень 2023 - Грудень 2023</p>
             <h3 class="job-title" class="company-work">За доброчесне навчання<span> - Стипендія</span></h3>
-            <p>Національний університет «Одеська політехніка», Одеса.</p>
-        </div class="description">
+            <p class="description">Національний університет «Одеська політехніка», Одеса.</p>
+        </div>
     </div>
 
-    <div class="card" id="other">
+    <div class="card end" id="other">
         <h2>Інше</h2>
         <p>2004 року народження.</p>
         <p>Володію наступними мовами: </p>
@@ -95,6 +96,41 @@
         </ul>
     </div>
 
+    <script>
+        function shorting() {
+            let cards = document.getElementsByClassName('card')
+            if ( cards.length == 0) cards = document.getElementsByClassName('short-card')
+            if (cards[1].className == 'card') {
+                document.getElementById('shorting').innerHTML = "Відновити"
+                for (let index = 0; index < 5; index++) {
+                    for (const key in cards) {
+                        if (cards[key].className == 'card' || cards[key].className == 'card first' || cards[key].className == 'card end') {
+                            cards[key].className = 'short-card'
+                        }
+                    }
+
+                }
+            } else {
+                document.getElementById('shorting').innerHTML = "Скоротити"
+                for (let index = 0; index < 5; index++) {
+                    for (const key in cards) {
+                        if (cards[key].className == 'short-card') {
+                            cards[key].className = 'card'
+                        }
+
+                        if (key == 1) {
+                            cards[key].className = 'card first'
+                        }
+
+                        if (key == (cards.length - 1)) {
+                            cards[key].className = 'card end'
+                        }
+                    }
+
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
