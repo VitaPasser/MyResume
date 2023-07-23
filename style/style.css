@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(230, 245, 255);
+}
+.card {
+    margin: auto;
+    padding: 52vh 0;
+    padding-top: 40vh;
+    width: 50%;
+}
+* {
+    z-index: 0;
+}
+
+.fixed-side-bar {
+    position: fixed;
+    right: 33vw;
+    top: 44vh;
+    z-index: 1;
+}
+
+.fixed-side-bar > nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.job-title > span {
+    font-size: 16px;
+    font-weight: 500;
+}
