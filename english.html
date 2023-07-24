@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/reset-style.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Resume</title>
+</head>
+
+<body>
+
+    <div class="fixed-side-bar">
+        <nav>
+            <a href="index.html">Ukrainian</a>
+            <a href="#contacts">Contacts</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#awards">Rewards</a>
+            <a href="#other">Other</a>
+            <a id="shorting" href="#" onclick="shorting();return false;">To short</a>
+        </nav>
+    </div>
+
+    <div class="card first" id="contacts">
+        <h1>Vorobyov Vitaliy Pavlovich</h1>
+        <p>Odessa, Ukraine</p>
+        <p>Phone: <a href="tel:+380985566904">+380985566904</a></p>
+        <p>Email: <a href="mailto:vitapasser@gmail.com">vitapasser@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/VitaPasser">https://github.com/VitaPasser</a></p>
+    </div>
+
+    <div class="card" id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Writing sites on Php. </li>
+            <li>Writing sites using a laravel framework and following it's conventions. </li>
+            <li>REST API </li>
+            <li>MySql </li>
+            <li>OOP </li>
+            <li>SOLID </li>
+            <li>Linux </li>
+            <li>Git </li>
+            <li>Docker </li>
+            <li>HTML and CSS </li>
+            <li>I can write confidently: <ul>
+                    <li>C/C++ </li>
+                    <li>Java </li>
+                    <li>C#</li>
+                    <li>PHP </li>
+                    <li>JS ES6+</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card" id="experience">
+        <h2>Experience</h2>
+        <div class="unit-experience-work">
+            <p class="time-work">June 2023</p>
+            <h3 class="job-title" class="company-work">Freelance<span> - Java Backend Developer</span></h3>
+            <ul>
+                <li>Created a minimum online store.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card" id="education">
+        <h2>Education</h2>
+        <div class="unit-experience-work">
+            <p class="time-work">September 2022 - June 2026</p>
+            <h3 class="job-title" class="company-work">Odesa Polytechnic National University, Odesa<span> - Bachelor</span></h3>
+            <p class="description">Specialty - software engineer.</p>
+        </div>
+    </div>
+
+    <div class="card" id="awards">
+        <h2>Rewards</h2>
+        <div class="unit-experience-work">
+            <p class="time-work">July 2023 - December 2023</p>
+            <h3 class="job-title" class="company-work">For virtuous learning <Span> - Scholarship </span></h3>
+            <p class="description">Odesa Polytechnic National University, Odesa.</p>
+        </div>
+    </div>
+
+    <div class="card end" id="other">
+        <h2>Other </h2>
+        <p> born in 2004. </p>
+        <p> I speak the following languages: </p>
+        <ul>
+            <li> Fluent in Ukrainian and Russian. </li>
+            <li> English at the level of reading technical documentation. <</li>
+        </ul>
+    </div>
+
+    <script>
+        function shorting() {
+            let cards = document.getElementsByClassName('card')
+            if ( cards.length == 0) cards = document.getElementsByClassName('short-card')
+            if (cards[1].className == 'card') {
+                document.getElementById('shorting').innerHTML = "Restore"
+                for (let index = 0; index < 5; index++) {
+                    for (const key in cards) {
+                        if (cards[key].className == 'card' || cards[key].className == 'card first' || cards[key].className == 'card end') {
+                            cards[key].className = 'short-card'
+                        }
+                    }
+
+                }
+            } else {
+                document.getElementById('shorting').innerHTML = "To short"
+                for (let index = 0; index < 5; index++) {
+                    for (const key in cards) {
+                        if (cards[key].className == 'short-card') {
+                            cards[key].className = 'card'
+                        }
+                    }
+
+                }
+                document.getElementById('contacts').className = 'card first'
+                document.getElementById('other').className = 'card end'
+            }
+        }
+    </script>
+</body>
+
+</html>
